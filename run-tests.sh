@@ -4,6 +4,11 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+if ! command -v javac >/dev/null 2>&1 || ! command -v java >/dev/null 2>&1; then
+  echo "ERROR: javac/java not found on PATH. Install a JDK (8 or later); no Maven/Gradle needed." >&2
+  exit 1
+fi
+
 # Enforce JDK 8 language level: use --release 8 when supported (JDK 9+),
 # fall back to -source/-target on a plain JDK 8.
 if javac --release 8 -version >/dev/null 2>&1; then
