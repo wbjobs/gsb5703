@@ -1,0 +1,5 @@
+tests/com/gsb/tpc/CoordinatorTest.java
+tests/com/gsb/tpc/CrashingLog.java
+tests/com/gsb/tpc/ManualClock.java
+tests/com/gsb/tpc/SimulatedCrash.java
+tests/com/gsb/tpc/TestParticipant.java

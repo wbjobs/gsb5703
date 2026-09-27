@@ -269,8 +269,12 @@ public final class CoordinatorTest {
                 "no rollback may follow a commit decision");
 
         // A further recovery is a no-op: the transaction is already ENDed.
+        int p1Calls = p1.commitCalls;
+        int p2Calls = p2.commitCalls;
+        int p3Calls = p3.commitCalls;
         c2.recover();
-        check(p1.commitCalls == 2 && p2.commitCalls == 2 && p3.commitCalls == 2,
+        check(p1.commitCalls == p1Calls && p2.commitCalls == p2Calls
+                && p3.commitCalls == p3Calls,
                 "finished transactions are not re-delivered");
     }
 
